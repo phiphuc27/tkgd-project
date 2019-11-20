@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* outline: 1px solid red; */
+}
+
+body {
+	background: #ecf4f3;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar */
+nav {
+	width: 100%;
+	background: #57a99a;
+	color: #ecf4f3;
+}
+.navbar,
+.menubar {
+	position: relative;
+	display: block;
+	padding: 1rem 0;
+	width: 100%;
+}
+
+.navbar {
+	display: flex;
+	align-items: center;
+}
+
+.navbar svg {
+	font-size: 2rem;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: #ecf4f3;
+	display: flex;
+	align-items: center;
+}
+
+.navbar a:hover {
+	color: #d1eecc;
+}
+
+.navbar a > span {
+	font-size: 2rem;
+	letter-spacing: 2px;
+	margin-left: 10px;
+}
+/* end of navbar*/
