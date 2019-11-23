@@ -68,11 +68,15 @@ export default class Navbar extends Component {
 								</span>
 							</li>
 							<li className='menu-man'>
-								<span>Nam</span>
+								<span>
+									<Link to='/products'>Nam</Link>
+								</span>
 								<div className='dropdown-menu product-menu'>
 									<ul>
 										<li>
-											<h4>Áo</h4>
+											<h4>
+												<Link to='/products'>Áo</Link>
+											</h4>
 										</li>
 										<li>
 											<Link to='/products'>Áo thun</Link>
@@ -86,10 +90,12 @@ export default class Navbar extends Component {
 									</ul>
 									<ul>
 										<li>
-											<h4>Quần</h4>
+											<h4>
+												<Link to='/products'>Quần</Link>
+											</h4>
 										</li>
 										<li>
-											<Link to='/products'>Quần dài</Link>
+											<Link to='/products'>Quần thun</Link>
 										</li>
 										<li>
 											<Link to='/products'>Quần tây</Link>
@@ -103,7 +109,9 @@ export default class Navbar extends Component {
 									</ul>
 									<ul>
 										<li>
-											<h4>Khác</h4>
+											<h4>
+												<Link to='/products'>Khác</Link>
+											</h4>
 										</li>
 										<li>
 											<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
@@ -118,11 +126,15 @@ export default class Navbar extends Component {
 								</div>
 							</li>
 							<li className='menu-woman'>
-								<span>Nữ</span>
+								<span>
+									<Link to='/products'>Nữ</Link>
+								</span>
 								<div className='dropdown-menu product-menu'>
 									<ul>
 										<li>
-											<h4>Áo</h4>
+											<h4>
+												<Link to='/products'>Áo</Link>
+											</h4>
 										</li>
 										<li>
 											<Link to='/products'>Áo thun</Link>
@@ -136,10 +148,12 @@ export default class Navbar extends Component {
 									</ul>
 									<ul>
 										<li>
-											<h4>Quần</h4>
+											<h4>
+												<Link to='/products'>Quần</Link>
+											</h4>
 										</li>
 										<li>
-											<Link to='/products'>Quần dài</Link>
+											<Link to='/products'>Quần thun</Link>
 										</li>
 										<li>
 											<Link to='/products'>Quần tây</Link>
@@ -153,7 +167,9 @@ export default class Navbar extends Component {
 									</ul>
 									<ul>
 										<li>
-											<h4>Khác</h4>
+											<h4>
+												<Link to='/products'>Khác</Link>
+											</h4>
 										</li>
 										<li>
 											<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
@@ -168,10 +184,14 @@ export default class Navbar extends Component {
 								</div>
 							</li>
 							<li>
-								<span>Phụ kiện</span>
+								<span>
+									<Link to='/products'>Phụ kiện</Link>
+								</span>
 							</li>
 							<li>
-								<span>Ưu đãi</span>
+								<span>
+									<Link to='/products'>Ưu đãi</Link>
+								</span>
 							</li>
 							<li>
 								<span>Liện hệ</span>

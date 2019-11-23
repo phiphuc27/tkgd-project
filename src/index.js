@@ -4,13 +4,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { ProductProvider } from './context';
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
-	<Router history={history}>
-		<App />
-	</Router>,
+	<ProductProvider>
+		<Router history={history}>
+			<App />
+		</Router>
+	</ProductProvider>,
 	document.getElementById('root')
 );
 
