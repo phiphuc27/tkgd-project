@@ -1,205 +1,237 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import MobileMenu from './MobileMenu';
 import {
 	HomeRounded,
 	AccountCircleRounded,
 	ShoppingCartRounded,
-	SearchRounded
+	SearchRounded,
+	MenuRounded
 } from '@material-ui/icons';
 
-import Container from '@material-ui/core/Container';
+import { IconButton } from '@material-ui/core';
 
 import { Link } from 'react-router-dom';
 
-export default class Navbar extends Component {
-	render() {
-		return (
-			<nav>
-				<Container maxWidth='lg'>
-					<div className='navbar'>
-						<div className='nav-logo'>
-							<Link to='/'>
-								<HomeRounded />
-								<span>LOGO</span>
-							</Link>
-						</div>
-						<div className='nav-search'>
-							<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
-							<button type='button'>
-								<span>
-									<SearchRounded />
-									Tìm kiếm
-								</span>
-							</button>
-						</div>
-						<div className='nav-user'>
-							<div className='user-info'>
-								<AccountCircleRounded />
-								<div>
-									<h4>
-										<b>Văn Văn</b>
-									</h4>
-									<span>Khách hàng thân thiết</span>
-								</div>
-							</div>
+const Navbar = () => {
+	const [left, setLeft] = useState(false);
 
-							<div className='dropdown-menu user-menu'>
+	const toggleDrawer = open => event => {
+		if (
+			event.type === 'keydown' &&
+			(event.key === 'Tab' || event.key === 'Shift')
+		) {
+			return;
+		}
+
+		setLeft(open);
+	};
+	return (
+		<nav>
+			<div className='container'>
+				<div className='navbar'>
+					<div className='nav-mobile'>
+						<IconButton
+							color='inherit'
+							aria-label='open drawer'
+							onClick={toggleDrawer(true)}
+							edge='start'>
+							<MenuRounded />
+						</IconButton>
+					</div>
+					<div className='nav-logo'>
+						<Link to='/'>
+							<HomeRounded />
+							<span>LOGO</span>
+						</Link>
+					</div>
+					<div className='nav-search'>
+						<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
+						<button type='button'>
+							<span>
+								<SearchRounded />
+								Tìm kiếm
+							</span>
+						</button>
+					</div>
+					<div className='nav-user'>
+						<div className='user-info'>
+							<AccountCircleRounded />
+							<div>
+								<h4>
+									<b>Văn Văn</b>
+								</h4>
+								<span>Khách hàng thân thiết</span>
+							</div>
+						</div>
+
+						<div className='dropdown-menu user-menu'>
+							<ul>
+								<li>Đơn hàng của tôi</li>
+								<li>Tài khoản của tôi</li>
+								<li>Sản phẩm đã xem</li>
+								<li>Sản phẩm yêu thích</li>
+								<hr />
+								<li>Thoát tài khoản</li>
+							</ul>
+						</div>
+					</div>
+					<div className='nav-cart'>
+						<Link to='/cart'>
+							<ShoppingCartRounded />
+							<span>2</span>
+						</Link>
+					</div>
+				</div>
+				<div className='menubar'>
+					<div className='nav-search'>
+						<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
+						<button type='button'>
+							<span>
+								<SearchRounded />
+							</span>
+						</button>
+					</div>
+					<ul>
+						<li>
+							<span>
+								<Link to='/'>Trang chủ</Link>
+							</span>
+						</li>
+						<li className='menu-man'>
+							<span>
+								<Link to='/products'>Nam</Link>
+							</span>
+							<div className='dropdown-menu product-menu'>
 								<ul>
-									<li>Đơn hàng của tôi</li>
-									<li>Tài khoản của tôi</li>
-									<li>Sản phẩm đã xem</li>
-									<li>Sản phẩm yêu thích</li>
-									<hr />
-									<li>Thoát tài khoản</li>
+									<li>
+										<h4>
+											<Link to='/products'>Áo</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Áo thun</Link>
+									</li>
+									<li>
+										<Link to='/products'>Áo sơ mi</Link>
+									</li>
+									<li>
+										<Link to='/products'>Áo khoác</Link>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<h4>
+											<Link to='/products'>Quần</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Quần thun</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần tây</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần short</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần jean</Link>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<h4>
+											<Link to='/products'>Khác</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
+									</li>
+									<li>
+										<Link to='/products'>Tất, vớ</Link>
+									</li>
+									<li>
+										<Link to='/products'>Nón</Link>
+									</li>
 								</ul>
 							</div>
-						</div>
-						<div className='nav-cart'>
-							<Link to='/cart'>
-								<ShoppingCartRounded />
-								<span>2</span>
-							</Link>
-						</div>
-					</div>
-					<div className='menubar'>
-						<ul>
-							<li>
-								<span>
-									<Link to='/'>Trang chủ</Link>
-								</span>
-							</li>
-							<li className='menu-man'>
-								<span>
-									<Link to='/products'>Nam</Link>
-								</span>
-								<div className='dropdown-menu product-menu'>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Áo</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Áo thun</Link>
-										</li>
-										<li>
-											<Link to='/products'>Áo sơ mi</Link>
-										</li>
-										<li>
-											<Link to='/products'>Áo khoác</Link>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Quần</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Quần thun</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần tây</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần short</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần jean</Link>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Khác</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
-										</li>
-										<li>
-											<Link to='/products'>Tất, vớ</Link>
-										</li>
-										<li>
-											<Link to='/products'>Nón</Link>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li className='menu-woman'>
-								<span>
-									<Link to='/products'>Nữ</Link>
-								</span>
-								<div className='dropdown-menu product-menu'>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Áo</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Áo thun</Link>
-										</li>
-										<li>
-											<Link to='/products'>Áo sơ mi</Link>
-										</li>
-										<li>
-											<Link to='/products'>Áo khoác</Link>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Quần</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Quần thun</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần tây</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần short</Link>
-										</li>
-										<li>
-											<Link to='/products'>Quần jean</Link>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											<h4>
-												<Link to='/products'>Khác</Link>
-											</h4>
-										</li>
-										<li>
-											<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
-										</li>
-										<li>
-											<Link to='/products'>Tất, vớ</Link>
-										</li>
-										<li>
-											<Link to='/products'>Nón</Link>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li>
-								<span>
-									<Link to='/products'>Phụ kiện</Link>
-								</span>
-							</li>
-							<li>
-								<span>
-									<Link to='/products'>Ưu đãi</Link>
-								</span>
-							</li>
-							<li>
-								<span>Liện hệ</span>
-							</li>
-						</ul>
-					</div>
-				</Container>
-			</nav>
-		);
-	}
-}
+						</li>
+						<li className='menu-woman'>
+							<span>
+								<Link to='/products'>Nữ</Link>
+							</span>
+							<div className='dropdown-menu product-menu'>
+								<ul>
+									<li>
+										<h4>
+											<Link to='/products'>Áo</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Áo thun</Link>
+									</li>
+									<li>
+										<Link to='/products'>Áo sơ mi</Link>
+									</li>
+									<li>
+										<Link to='/products'>Áo khoác</Link>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<h4>
+											<Link to='/products'>Quần</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Quần thun</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần tây</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần short</Link>
+									</li>
+									<li>
+										<Link to='/products'>Quần jean</Link>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<h4>
+											<Link to='/products'>Khác</Link>
+										</h4>
+									</li>
+									<li>
+										<Link to='/products'>Đồ lót, đồ ngủ, đồ bơi</Link>
+									</li>
+									<li>
+										<Link to='/products'>Tất, vớ</Link>
+									</li>
+									<li>
+										<Link to='/products'>Nón</Link>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<span>
+								<Link to='/products'>Phụ kiện</Link>
+							</span>
+						</li>
+						<li>
+							<span>
+								<Link to='/products'>Ưu đãi</Link>
+							</span>
+						</li>
+						<li>
+							<span>Liện hệ</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<MobileMenu toggleDrawer={open => toggleDrawer(open)} left={left} />
+		</nav>
+	);
+};
+
+export default Navbar;

@@ -13,7 +13,7 @@ function Footer() {
 			<div class='container'>
 				<div class='row'>
 					<div class='col-sm-12 col-md-6'>
-						<h6>About</h6>
+						<h6>Giới thiệu</h6>
 						<p class='text-justify'>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Reiciendis possimus, necessitatibus ratione distinctio aperiam
@@ -26,7 +26,7 @@ function Footer() {
 					</div>
 
 					<div class='col-xs-6 col-md-3'>
-						<h6>Categories</h6>
+						<h6>Danh mục</h6>
 						<ul class='footer-links'>
 							<li>
 								<a href='#'>Trang chủ</a>
@@ -47,22 +47,22 @@ function Footer() {
 					</div>
 
 					<div class='col-xs-6 col-md-3'>
-						<h6>Quick Links</h6>
+						<h6>Liên kết</h6>
 						<ul class='footer-links'>
 							<li>
-								<a href='#'>About Us</a>
+								<a href='#'>Giới thiệu</a>
 							</li>
 							<li>
-								<a href='#'>Contact Us</a>
+								<a href='#'>Liên hệ</a>
 							</li>
 							<li>
-								<a href='#'>Contribute</a>
+								<a href='#'>Thành tựu</a>
 							</li>
 							<li>
-								<a href='#'>Privacy Policy</a>
+								<a href='#'>Chính sách</a>
 							</li>
 							<li>
-								<a href='#'>Sitemap</a>
+								<a href='#'>Bản đồ</a>
 							</li>
 						</ul>
 					</div>

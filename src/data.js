@@ -63,7 +63,7 @@ export default [
 		price: 559000,
 		color: ['#FF3232', '#3232FF', '#323232'],
 		size: ['m', 'l', 'xl', 'xxl'],
-		new: true,
+		new: false,
 		trending: true,
 		bestSelling: true,
 		description: `Áo khoác UV phủ hoa văn hiện đại:
@@ -83,7 +83,7 @@ export default [
 		price: 439000,
 		color: ['#2B2B2B'],
 		size: ['m', 'l', 'xl'],
-		new: false,
+		new: true,
 		trending: false,
 		bestSelling: true,
 		description: `Quần jogger phối dây phản quang hai bên sườn.
@@ -143,7 +143,7 @@ export default [
 		price: 399000,
 		color: ['#7F0000', '#FFBAC6'],
 		size: ['s'],
-		new: false,
+		new: true,
 		trending: true,
 		bestSelling: false,
 		description: `Áo sơ mi oversize dành cho nữ
@@ -166,7 +166,7 @@ export default [
 		color: ['#000', '#5775F1', '#fff'],
 		size: ['s', 'm', 'l'],
 		new: true,
-		trending: false,
+		trending: true,
 		bestSelling: true,
 		description: `Áo khoác dù form dáng dài bụi bặm ,  túi hộp lớn  (kép 2 túi ) thời trang
 
@@ -186,7 +186,7 @@ export default [
 		color: ['#000', '#1560bd'],
 		size: ['s', 'm', 'l'],
 		new: false,
-		trending: false,
+		trending: true,
 		bestSelling: false,
 		description: `Quần jean cơ bản trong tủ đồ của mỗi cô gái.
         
@@ -203,7 +203,7 @@ export default [
 		price: 369000,
 		color: ['#000'],
 		size: ['s', 'm'],
-		new: false,
+		new: true,
 		trending: false,
 		bestSelling: true,
 		description: `Quần jean cơ bản trong tủ đồ của mỗi cô gái.
