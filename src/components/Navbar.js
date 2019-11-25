@@ -4,9 +4,10 @@ import {
 	HomeRounded,
 	AccountCircleRounded,
 	ShoppingCartRounded,
-	SearchRounded,
 	MenuRounded
 } from '@material-ui/icons';
+
+import { GoSearch } from 'react-icons/go';
 
 import { IconButton } from '@material-ui/core';
 
@@ -48,8 +49,7 @@ const Navbar = () => {
 						<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
 						<button type='button'>
 							<span>
-								<SearchRounded />
-								Tìm kiếm
+								<GoSearch />
 							</span>
 						</button>
 					</div>
@@ -87,7 +87,7 @@ const Navbar = () => {
 						<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
 						<button type='button'>
 							<span>
-								<SearchRounded />
+								<GoSearch />
 							</span>
 						</button>
 					</div>
