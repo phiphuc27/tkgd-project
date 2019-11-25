@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ProductContext } from '../context';
 import Banner from '../components/Banner';
-import Products from '../components/Products';
+import FeaturedProducts from '../components/FeaturedProducts';
 import Product from '../components/Product';
 
 class Home extends Component {
@@ -18,8 +18,11 @@ class Home extends Component {
 			<div>
 				<Banner />
 				<div className='container-fluid'>
-					<Products title='sản phẩm mới nhất' products={newProducts} />
-					<Products title='sản phẩm nổi bật' products={trendingProducts} />
+					<FeaturedProducts title='sản phẩm mới nhất' products={newProducts} />
+					<FeaturedProducts
+						title='sản phẩm nổi bật'
+						products={trendingProducts}
+					/>
 				</div>
 			</div>
 		);

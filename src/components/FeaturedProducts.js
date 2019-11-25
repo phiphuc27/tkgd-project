@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title';
 
-class Products extends Component {
+class FeaturedProducts extends Component {
 	render() {
 		const { title, products } = this.props;
 		return (
@@ -13,4 +13,4 @@ class Products extends Component {
 	}
 }
 
-export default Products;
+export default FeaturedProducts;
