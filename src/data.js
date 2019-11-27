@@ -28,11 +28,11 @@ export default [
 		bestSelling: true,
 		description: `Form áo oversize thoải mái và ấm áp
         
-        Từ chất liệu thun 4 chiều bền màu, giữ nhiệt và co giãn tốt
+Từ chất liệu thun 4 chiều bền màu, giữ nhiệt và co giãn tốt
 
-        Bộ 3 màu xám, xanh và cam đất dễ dàng lựa chọn
+Bộ 3 màu xám, xanh và cam đất dễ dàng lựa chọn
 
-        Khi trời trở lạnh, không thể thiếu “ Hoodies oversize”`,
+Khi trời trở lạnh, không thể thiếu “ Hoodies oversize”`,
 		images: [detail1, detail2, detail3, detail4, detail5]
 	},
 	{
@@ -48,11 +48,11 @@ export default [
 		bestSelling: false,
 		description: `Đôi kết hợp gồm áo thun cho nam và đầm suông cho nữ
         
-        Form áo thun nam basic được thiết kế đường sọc zebra ngang ngực nổi bật 
+Form áo thun nam basic được thiết kế đường sọc zebra ngang ngực nổi bật 
 
-        Đầm suông nữ là sự phối hợp giữa hoa văn zabra và màu khối đen, trắng + Túi trong tiện lợi
+Đầm suông nữ là sự phối hợp giữa hoa văn zabra và màu khối đen, trắng + Túi trong tiện lợi
         
-        Chất vải giữ ấm và chống nắng khá tốt.`,
+Chất vải giữ ấm và chống nắng khá tốt.`,
 		images: [img1, detail2, detail3, detail4]
 	},
 	{
@@ -68,11 +68,11 @@ export default [
 		bestSelling: true,
 		description: `Áo khoác UV phủ hoa văn hiện đại:
         
-        Bộ 4 màu trẻ trung, phù hợp với nhiều loại trang phục.
+Bộ 4 màu trẻ trung, phù hợp với nhiều loại trang phục.
 
-        Chất liệu vải chống UV được phủ hoa văn trên bề mặt.
+Chất liệu vải chống UV được phủ hoa văn trên bề mặt.
 
-        Trang bị túi thân trước và túi trong an toàn.`,
+Trang bị túi thân trước và túi trong an toàn.`,
 		images: [img2, detail2, detail3, detail4]
 	},
 	{
@@ -88,11 +88,11 @@ export default [
 		bestSelling: true,
 		description: `Quần jogger phối dây phản quang hai bên sườn.
         
-        Túi quần được phối dây kéo an toàn.
+Túi quần được phối dây kéo an toàn.
 
-        Được trang bị dây rút lưng.
+Được trang bị dây rút lưng.
 
-        Chất vải 4c thoáng mát, con giãn tốt và bền màu.`,
+Chất vải 4c thoáng mát, con giãn tốt và bền màu.`,
 		images: [img3, detail2, detail3, detail4]
 	},
 	{
@@ -108,11 +108,11 @@ export default [
 		bestSelling: false,
 		description: `Short thun cho cả gia đình
 
-        Nổi bật với đường viền sọc thể thao trẻ trung bên sườn
+Nổi bật với đường viền sọc thể thao trẻ trung bên sườn
         
-        Form quần trẻ trung với phần ống cao
+Form quần trẻ trung với phần ống cao
         
-        Chất vải co giãn vận động thoải mái`,
+Chất vải co giãn vận động thoải mái`,
 		images: [img4, detail2, detail3, detail4]
 	},
 	{
@@ -128,11 +128,11 @@ export default [
 		bestSelling: true,
 		description: `Áo thun đôi trẻ trung
         
-        Gồm 2 màu đỏ và đen
+Gồm 2 màu đỏ và đen
 
-        Form áo thun rớt vai phối hình in “Player” chất chơi
+Form áo thun rớt vai phối hình in “Player” chất chơi
         
-        Chất vải cotton thoáng mát, thấm hút mồ hôi`,
+Chất vải cotton thoáng mát, thấm hút mồ hôi`,
 		images: [img5, detail2, detail3, detail4]
 	},
 	{
@@ -148,13 +148,13 @@ export default [
 		bestSelling: false,
 		description: `Áo sơ mi oversize dành cho nữ
 
-        Caro 2 màu classical tôn da
+Caro 2 màu classical tôn da
         
-        Form sơn mi oversize cá tình, phần vai xệ
+Form sơn mi oversize cá tình, phần vai xệ
 
-        Chất vải caro xớ chéo làm nên điểm đặc biệt sản phẩm
+Chất vải caro xớ chéo làm nên điểm đặc biệt sản phẩm
 
-        Mix match cùng short, jeans, khaki hay skirt nào các cô gái!`,
+Mix match cùng short, jeans, khaki hay skirt nào các cô gái!`,
 		images: [img6, detail2, detail3, detail4]
 	},
 	{
@@ -170,11 +170,11 @@ export default [
 		bestSelling: true,
 		description: `Áo khoác dù form dáng dài bụi bặm ,  túi hộp lớn  (kép 2 túi ) thời trang
 
-        Bộ màu sản phẩm gồm 4 màu : kem- vàng- xanh -đen
+Bộ màu sản phẩm gồm 4 màu : kem- vàng- xanh -đen
         
-        Chất liệu : lớp ngoài chất liệu dù dày nhưng mềm mại , lớp trong  vải lưới  khác màu  tạo hiệu ứng lạ mắt thoáng mát 
+Chất liệu : lớp ngoài chất liệu dù dày nhưng mềm mại , lớp trong  vải lưới  khác màu  tạo hiệu ứng lạ mắt thoáng mát 
         
-        Áó có 2 túi ngoài và 2 túi trong ( 1 túi nắp và 1 túi có dây kéo tiện lợi )`,
+Áó có 2 túi ngoài và 2 túi trong ( 1 túi nắp và 1 túi có dây kéo tiện lợi )`,
 		images: [img7, detail2, detail3, detail4]
 	},
 	{
@@ -190,9 +190,9 @@ export default [
 		bestSelling: false,
 		description: `Quần jean cơ bản trong tủ đồ của mỗi cô gái.
         
-        Màu xanh đậm trung tính.
+Màu xanh đậm trung tính.
 
-        Diện ngay ra phố hội họp với bạn bè, và rất nhiều dịp để mix match`,
+Diện ngay ra phố hội họp với bạn bè, và rất nhiều dịp để mix match`,
 		images: [img8, detail2, detail3, detail4]
 	},
 	{
@@ -207,8 +207,10 @@ export default [
 		trending: false,
 		bestSelling: true,
 		description: `Quần jean cơ bản trong tủ đồ của mỗi cô gái.
-        Màu xanh đậm trung tính.
-        Diện ngay ra phố hội họp với bạn bè, và rất nhiều dịp để mix match`,
+
+Màu xanh đậm trung tính.
+
+Diện ngay ra phố hội họp với bạn bè, và rất nhiều dịp để mix match`,
 		images: [img9, detail2, detail3, detail4]
 	},
 	{
@@ -224,7 +226,7 @@ export default [
 		bestSelling: true,
 		description: `Set cặp đôi thanh lịch, bạn nam với sơ mi form slim fit, bạn nữ với đầm cổ vuông, dây chéo sau lưng.
         
-         Sự hòa quyện trong tình yêu được thể hiện vô cùng thời trang và tinh tế.`,
+Sự hòa quyện trong tình yêu được thể hiện vô cùng thời trang và tinh tế.`,
 		images: [img10, detail2, detail3, detail4]
 	}
 ];

@@ -27,7 +27,7 @@ const Navbar = () => {
 		setLeft(open);
 	};
 	return (
-		<nav>
+		<nav className='nav-container'>
 			<div className='container'>
 				<div className='navbar'>
 					<div className='nav-mobile'>

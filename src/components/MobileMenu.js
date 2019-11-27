@@ -68,12 +68,9 @@ const MobileMenu = ({ left, toggleDrawer }) => {
 					<List>
 						{['Trang chủ', 'Nam', 'Nữ', 'Phụ kiện', 'Ưu đãi', 'Liên hệ'].map(
 							(text, index) => (
-								<>
-									<ListItem button key={text}>
-										<Link to={index === 0 ? '/' : '/products'}>{text}</Link>
-									</ListItem>
-									<Divider />
-								</>
+								<ListItem button key={text}>
+									<Link to={index === 0 ? '/' : '/products'}>{text}</Link>
+								</ListItem>
 							)
 						)}
 					</List>

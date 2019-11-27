@@ -3,15 +3,13 @@ import items from './data';
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			products: [],
-			sortedProducts: [],
-			newProducts: [],
-			trendingProducts: []
-		};
-	}
+	state = {
+		products: [],
+		sortedProducts: [],
+		newProducts: [],
+		trendingProducts: []
+	};
+
 	componentDidMount() {
 		let products = items;
 		let newProducts = products.filter(product => product.new === true);
@@ -25,9 +23,29 @@ class ProductProvider extends Component {
 			sortedProducts: products
 		});
 	}
+
+	getProduct = id => {
+		let tmpProducts = [...this.state.products];
+		const product = tmpProducts.find(product => product.id === id);
+		return product;
+	};
+
+	getSimilarTypeProduct = (type, id) => {
+		let tmpProducts = [...this.state.products];
+		const product = tmpProducts.filter(
+			product => product.type === type && product.id !== id
+		);
+		return product;
+	};
+
 	render() {
 		return (
-			<ProductContext.Provider value={{ ...this.state }}>
+			<ProductContext.Provider
+				value={{
+					...this.state,
+					getProduct: this.getProduct,
+					getSimilarTypeProduct: this.getSimilarTypeProduct
+				}}>
 				{this.props.children}
 			</ProductContext.Provider>
 		);
