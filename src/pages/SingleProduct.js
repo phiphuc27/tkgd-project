@@ -133,7 +133,7 @@ export default class SingleProduct extends Component {
 						</div>
 						<hr />
 						<div className='product-buttons'>
-							<button className='btn btn-buy'>Thêm vào giỏ hàng</button>
+							<button className='btn btn-buy' onClick={()=>this.context.addCart(this.state.id)}>Thêm vào giỏ hàng</button>
 							<button className='btn btn-buy' onClick={this.buyNow}>
 								Mua ngay
 							</button>

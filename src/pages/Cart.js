@@ -6,12 +6,11 @@ export default class Cart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			//products: this.props.products                  //[{id:... , quantity:... }]
 			carts: [],
 			totalPrice: 0,
 		};
-		
 	}
+
 	static contextType = ProductContext;
 
 	delete(index){
@@ -21,6 +20,11 @@ export default class Cart extends Component {
 		for(let i=0; i<carts.length; i++){
 			totalPrice+=carts[i].quantity*carts[0].price;
 		}
+
+		let contextCarts = this.context.carts;
+		contextCarts.splice(index,1)
+		this.context.updateCart(contextCarts);
+
 		this.setState({
 			carts: carts,
 			totalPrice: totalPrice,
@@ -33,6 +37,11 @@ export default class Cart extends Component {
 		if(carts[index].quantity===1 && x<0) return;
 		carts[index].quantity += x;
 		totalPrice += carts[index].price*x;
+
+		let contextCarts = this.context.carts;
+		contextCarts[index].quantity += x
+		this.context.updateCart(contextCarts);
+
 		this.setState({
 			carts: carts,
 			totalPrice: totalPrice,
@@ -46,6 +55,11 @@ export default class Cart extends Component {
 		for(let i=0; i<carts.length; i++){
 			totalPrice+=carts[i].quantity*carts[0].price;
 		}
+
+		let contextCarts = this.context.carts;
+		contextCarts[index].quantity = carts[index].quantity
+		this.context.updateCart(contextCarts);
+
 		this.setState({
 			carts: carts,
 			totalPrice: totalPrice,
@@ -53,24 +67,28 @@ export default class Cart extends Component {
 	}
 
 	render() {
-		let {products} = this.context;
+		let carts = this.context.carts;
 		var shoppingCart;
-		if(products.length){
+		if(carts.length){
+			console.log(123)
 			if(!this.state.carts.length){
-				let carts = [products[0], products[1]];
-				carts[0].quantity = 1;
-				carts[1].quantity = 2;
+				let tempCarts = [];
+				for(let i=0; i<carts.length; i++){
+					tempCarts.push(this.context.products[carts[i].id]);
+					tempCarts[i]['quantity'] = carts[i].quantity;
+				}
+
 				let totalPrice = 0;
 				for(let i=0; i<carts.length; i++){
-					totalPrice+=carts[i].quantity*carts[0].price;
+					totalPrice+=tempCarts[i].quantity*tempCarts[0].price;
 				}
 				this.setState({
-					carts: carts,
+					carts: tempCarts,
 					totalPrice: totalPrice
 				})
 			}
 			
-			var carts = this.state.carts
+			carts = this.state.carts;
 			shoppingCart = carts.map((product, index) => {
 				return (
 					<div key={product.id} className='row cart-item'>
@@ -109,45 +127,65 @@ export default class Cart extends Component {
 					</div>
 				)
 			})
+			return (
+				<div className='container'>
+					<div className='row'>
+						<div className='page-title col-xs-12 col-md-12'>
+							<h4>Cart</h4>
+						</div>
+						<div className='col-xs-8 col-md-8'>
+							<div className='cart-col-1'>
+								{shoppingCart}
+							</div>
+						</div>
+						<div className='col-xs-3 col-md-4'>
+							<div className='row cart-col-2'>
+								<div className='col-12'>
+									<p className='row'>
+										<span className='col-4'>Tạm tính:</span>
+										<strong className='col-8'>{this.state.totalPrice}</strong>
+									</p>
+								</div>
+								<div className='col-12'>
+									<p className='row'>
+										<span className='col-4'>Thành tiền:</span>
+										<strong className='col-8'>{this.state.totalPrice}</strong>
+										<span className='col-4'></span>
+										<small className='col-8'>(Đã bao gồm thuế nếu có)</small>
+									</p>
+								</div>
+							</div>
+							<div className='cart-check-out'>
+								<Link to='/checkout'>
+									<button type='button' className='btn btn-danger'>
+										Tiến hành đặt hàng
+									</button>
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>	
+			)
 		}
-		return (
-			<div className='container'>
-				<div className='row'>
-					<div className='page-title col-xs-12 col-md-12'>
-						<h4>Cart</h4>
-					</div>
-					<div className='col-xs-8 col-md-8'>
-						<div className='cart-col-1'>
-							{shoppingCart}
+		else {
+			return(
+				<div className='container'>
+					<div className='row'>
+						<div className='page-title col-xs-12 col-md-12'>
+							<h4>Cart</h4>
 						</div>
-					</div>
-					<div className='col-xs-3 col-md-4'>
-						<div className='row cart-col-2'>
-							<div className='col-12'>
-								<p className='row'>
-									<span className='col-4'>Tạm tính:</span>
-									<strong className='col-8'>{this.state.totalPrice}</strong>
-								</p>
+						<div className='row emty-cart col-xs-12 col-md-12'>
+							<div className='col-xs-12 col-md-12'>
+								<img className='emty-cart-image' src={require('../images/emtycart.jpg')} alt='emty cart'/>
 							</div>
-							<div className='col-12'>
-								<p className='row'>
-									<span className='col-4'>Thành tiền:</span>
-									<strong className='col-8'>{this.state.totalPrice}</strong>
-									<span className='col-4'></span>
-									<small className='col-8'>(Đã bao gồm thuế nếu có)</small>
-								</p>
+							<div className='col-xs-12 col-md-12'>
+								Không có sản phẩm nàm trong giỏ hàng của bạn
 							</div>
-						</div>
-						<div className='cart-check-out'>
-							<Link to='/checkout'>
-								<button type='button' className='btn btn-danger'>
-									Tiến hành đặt hàng
-								</button>
-							</Link>
 						</div>
 					</div>
 				</div>
-			</div>	
-		)
+			)
+		}
 	}
+		
 }

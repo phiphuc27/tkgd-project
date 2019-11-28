@@ -7,7 +7,8 @@ class ProductProvider extends Component {
 		products: [],
 		sortedProducts: [],
 		newProducts: [],
-		trendingProducts: []
+		trendingProducts: [],
+		carts: [],
 	};
 
 	componentDidMount() {
@@ -20,7 +21,7 @@ class ProductProvider extends Component {
 			products,
 			newProducts,
 			trendingProducts,
-			sortedProducts: products
+			sortedProducts: products,
 		});
 	}
 
@@ -38,13 +39,33 @@ class ProductProvider extends Component {
 		return product;
 	};
 
+	addCart = id => {
+		let carts = this.state.carts;
+		for(let i=0; i < carts.length; i++){
+			if(carts[i].id===id) return;
+		}
+		let cart = {id: id, quantity: 1}
+		carts.push(cart);
+		this.setState({
+			carts: carts
+		});
+	}
+
+	updateCart = carts => {
+		this.setState({
+			carts: carts
+		});
+	}
+
 	render() {
 		return (
 			<ProductContext.Provider
 				value={{
 					...this.state,
 					getProduct: this.getProduct,
-					getSimilarTypeProduct: this.getSimilarTypeProduct
+					getSimilarTypeProduct: this.getSimilarTypeProduct,
+					addCart: this.addCart,
+					updateCart: this.updateCart,
 				}}>
 				{this.props.children}
 			</ProductContext.Provider>
