@@ -636,6 +636,32 @@ ul {
 	height: 4px;
 	background: var(--primary-Color);
 }
+
+.page-title {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 5em;
+}
+
+.page-title h4 {
+	position: relative;
+	text-transform: capitalize;
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title h4::before {
+	content: '';
+	position: absolute;
+	margin: 0 auto;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 230px;
+	height: 4px;
+	background: var(--primary-Color);
+}
 /* end of title*/
 
 /* FEATURE PRODUCTS */
@@ -943,3 +969,57 @@ ul {
 }
 
 /* end of single product*/
+
+/* Cart*/
+
+.cart-item {
+	margin-bottom: 10px;
+}
+
+.cart-image {
+	height: 110px;
+}
+
+.cart-col-1 {
+	background: white;
+	margin: 10px 0;
+	padding: 20px 5px;
+}
+
+.delete-product-in-cart {
+	text-align: center;
+	margin-top: 5px;
+}
+
+.delete-product-in-cart button{
+	background: white;
+	border: none;
+}
+
+.delete-product-in-cart button:hover{
+	color: red;
+}
+
+.cart-col-2 {
+	background: white;
+	margin: 10px 0;
+	padding: 20px 5px;
+}
+
+.cart-col-2 p {
+	text-align: right;
+}
+
+.cart-col-2 span {
+	text-align: left;
+}
+
+.cart-check-out button {
+	width: 100%;
+}
+
+.input-group .cart-button {
+	width: 38px;
+}
+
+/* End of Cart*/
