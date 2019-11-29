@@ -232,7 +232,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 			</div>
-			<MobileMenu toggleDrawer={open => toggleDrawer(open)} left={left} />
+			<MobileMenu
+				className='nav-mobile-container'
+				toggleDrawer={open => toggleDrawer(open)}
+				left={left}
+			/>
 		</nav>
 	);
 };

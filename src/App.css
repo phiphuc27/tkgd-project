@@ -340,7 +340,7 @@ ul {
 	display: none;
 }
 
-.MuiPaper-root {
+.MuiDrawer-paper {
 	background: linear-gradient(to top, #36d1dc, #5b86e5);
 	color: #ebf5ee !important;
 }
@@ -1053,3 +1053,35 @@ ul {
 }
 
 /* End of Cart*/
+
+/* Checkout */
+.checkout {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	column-gap: 2em;
+	margin-bottom: 3em;
+}
+
+.info-header {
+	background: var(--primary-Color);
+}
+
+.info-header p {
+	color: #ebf5ee;
+	font-size: 1.2rem;
+	letter-spacing: 1px;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+.detail-panel .row {
+	background: white;
+	padding: 0.5em;
+}
+/* end of checkout */
+
+/* Error */
+.error {
+	margin: 2em;
+}
+/* end of error */
