@@ -653,6 +653,17 @@ nav {
 }
 /* end of feature products*/
 
+/* PRODUCTSLIST */
+.productslist-container {
+	margin: 0 auto;
+	/* width: 80vw; */
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+	column-gap: 40px;
+	row-gap: 2rem;
+}
+/* end of productsList*/
+
 /* PRODUCT CARD */
 
 .card {
