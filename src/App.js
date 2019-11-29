@@ -20,21 +20,15 @@ function App() {
 			<Navbar />
 
 			<Switch>
-				<Route exact path='/'>
-					<Home />
-				</Route>
-				<Route exact path='/products'>
-					<Products />
-				</Route>
-				<Route exact path='/products/:slug'>
-					<SingleProduct />
-				</Route>
-				<Route exact path='/cart'>
-					<Cart />
-				</Route>
-				<Route exact path='/checkout'>
-					<Checkout />
-				</Route>
+				<Route exact path='/' component={Home} />
+
+				<Route exact path='/products' component={Products} />
+
+				<Route exact path='/products/:id' component={SingleProduct} />
+
+				<Route exact path='/cart' component={Cart} />
+
+				<Route exact path='/checkout' component={Checkout} />
 				<Route>
 					<Error />
 				</Route>

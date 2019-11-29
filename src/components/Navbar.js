@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ProductContext } from '../context';
 import MobileMenu from './MobileMenu';
 import {
 	HomeRounded,
@@ -15,6 +16,8 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [left, setLeft] = useState(false);
+	const context = useContext(ProductContext);
+	const { carts } = context;
 
 	const toggleDrawer = open => event => {
 		if (
@@ -27,7 +30,7 @@ const Navbar = () => {
 		setLeft(open);
 	};
 	return (
-		<nav>
+		<nav className='nav-container'>
 			<div className='container'>
 				<div className='navbar'>
 					<div className='nav-mobile'>
@@ -78,7 +81,7 @@ const Navbar = () => {
 					<div className='nav-cart'>
 						<Link to='/cart'>
 							<ShoppingCartRounded />
-							<span>2</span>
+							{carts.length !== 0 && <span>{carts.length}</span>}
 						</Link>
 					</div>
 				</div>
@@ -229,7 +232,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 			</div>
-			<MobileMenu toggleDrawer={open => toggleDrawer(open)} left={left} />
+			<MobileMenu
+				className='nav-mobile-container'
+				toggleDrawer={open => toggleDrawer(open)}
+				left={left}
+			/>
 		</nav>
 	);
 };
