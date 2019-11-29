@@ -8,7 +8,7 @@ class ProductProvider extends Component {
 		sortedProducts: [],
 		newProducts: [],
 		trendingProducts: [],
-		carts: [],
+		carts: JSON.parse(localStorage.getItem('carts')) || []
 	};
 
 	componentDidMount() {
@@ -21,7 +21,7 @@ class ProductProvider extends Component {
 			products,
 			newProducts,
 			trendingProducts,
-			sortedProducts: products,
+			sortedProducts: products
 		});
 	}
 
@@ -41,21 +41,37 @@ class ProductProvider extends Component {
 
 	addCart = id => {
 		let carts = this.state.carts;
-		for(let i=0; i < carts.length; i++){
-			if(carts[i].id===id) return;
+		let cart = { id: id, quantity: 1 };
+		for (let i = 0; i < carts.length; i++) {
+			if (carts[i].id === id) {
+				carts[i].quantity += 1;
+				this.updateCart(carts);
+				alert('Bạn đã thêm vào giỏ hàng thành công');
+				return;
+			}
 		}
-		let cart = {id: id, quantity: 1}
 		carts.push(cart);
-		this.setState({
-			carts: carts
-		});
-	}
+		this.setState(
+			{
+				carts: carts
+			},
+			() => {
+				localStorage.setItem('carts', JSON.stringify(this.state.carts));
+			}
+		);
+		alert('Bạn đã thêm vào giỏ hàng thành công');
+	};
 
 	updateCart = carts => {
-		this.setState({
-			carts: carts
-		});
-	}
+		this.setState(
+			{
+				carts: carts
+			},
+			() => {
+				localStorage.setItem('carts', JSON.stringify(this.state.carts));
+			}
+		);
+	};
 
 	render() {
 		return (
@@ -65,7 +81,7 @@ class ProductProvider extends Component {
 					getProduct: this.getProduct,
 					getSimilarTypeProduct: this.getSimilarTypeProduct,
 					addCart: this.addCart,
-					updateCart: this.updateCart,
+					updateCart: this.updateCart
 				}}>
 				{this.props.children}
 			</ProductContext.Provider>

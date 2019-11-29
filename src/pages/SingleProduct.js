@@ -17,7 +17,8 @@ export default class SingleProduct extends Component {
 	static contextType = ProductContext;
 
 	buyNow = () => {
-		this.props.history.push('/checkout');
+		this.context.addCart(this.state.id);
+		this.props.history.push('/cart');
 	};
 
 	render() {
@@ -35,7 +36,13 @@ export default class SingleProduct extends Component {
 		const [mainImage, ...subImages] = images;
 		const similarProduct = getSimilarTypeProduct(type, this.state.id).map(
 			product => {
-				return <Product key={product.id} product={product} />;
+				return (
+					<Product
+						key={product.id}
+						product={product}
+						onClick={id => this.context.addCart(id)}
+					/>
+				);
 			}
 		);
 		console.log(similarProduct);
@@ -133,7 +140,11 @@ export default class SingleProduct extends Component {
 						</div>
 						<hr />
 						<div className='product-buttons'>
-							<button className='btn btn-buy' onClick={()=>this.context.addCart(this.state.id)}>Thêm vào giỏ hàng</button>
+							<button
+								className='btn btn-buy'
+								onClick={() => this.context.addCart(this.state.id)}>
+								Thêm vào giỏ hàng
+							</button>
 							<button className='btn btn-buy' onClick={this.buyNow}>
 								Mua ngay
 							</button>
