@@ -133,7 +133,7 @@ class Category extends Component {
                   }}
                 />
                 <TextField
-                  style={{ width: '80px', marginLeft: '140px' }}
+                  style={{ width: '80px', marginLeft: '45%' }}
                   type="text"
                   value={this.state.value[1]}
                   onChange={event => {

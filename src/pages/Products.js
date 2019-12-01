@@ -8,11 +8,10 @@ export default class Products extends Component {
   static contextType = ProductContext;
 
   render() {
-    let { newProducts } = this.context;
-    newProducts = newProducts.map(product => {
+    let { products } = this.context;
+    products = products.map(product => {
       return <Product key={product.id} product={product} />;
     });
-    // return <div>Product List Page</div>;
     return (
       <div className="row">
         <div className="col-md-3" style={{ paddingLeft: '50px', paddingRight:'10px' }}>
@@ -20,7 +19,7 @@ export default class Products extends Component {
         </div>
         <div className="col-md-9">
           <div className="container" style={{ paddingLeft: '10px', paddingRight:'50px' }}>
-            <ProductsList title="Đồ nữ" products={newProducts} />
+            <ProductsList title="Đồ nữ" products={products} />
           </div>
         </div>
       </div>
