@@ -108,7 +108,7 @@ export default class Cart extends Component {
 						</div>
 						<div className='col-xs-9 col-md-10'>
 							<div className='row'>
-								<div className='col-xs-7 col-md-7'>
+								<div className='col-xs-6 col-md-6'>
 									<div className='row'>
 										<div className='col-12'>
 											<h6>
@@ -154,7 +154,7 @@ export default class Cart extends Component {
 										</p>
 									</div>
 								</div>
-								<div className='col-xs-3 col-md-3'>
+								<div className='col-xs-4 col-md-4'>
 									<div className='row'>
 										<div className='input-group col-12'>
 											<div
@@ -165,6 +165,7 @@ export default class Cart extends Component {
 											<input
 												type='text'
 												className='form-control'
+												style={{ width: '34px' }}
 												aria-label='Amount'
 												value={product.quantity}
 												onChange={e =>
@@ -258,7 +259,7 @@ export default class Cart extends Component {
 				<div className='container'>
 					<div className='row'>
 						<div className='page-title col-xs-12 col-md-12'>
-							<h4>Cart</h4>
+							<h4>Giỏ hàng</h4>
 						</div>
 						<div className='row emty-cart col-xs-12 col-md-12'>
 							<div className='col-xs-12 col-md-12'>
@@ -270,6 +271,14 @@ export default class Cart extends Component {
 							</div>
 							<div className='col-xs-12 col-md-12'>
 								Không có sản phẩm nàm trong giỏ hàng của bạn
+							</div>
+							<div className='col-xs-12 col-md-12'>
+								<button
+									style={{ marginBlockStart: '1em' }}
+									className='btn btn-buy'
+									onClick={() => this.props.history.push('/products')}>
+									Tiếp tục mua hàng
+								</button>
 							</div>
 						</div>
 					</div>

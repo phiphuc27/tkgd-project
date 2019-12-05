@@ -10,22 +10,36 @@ import {
 function Footer() {
 	return (
 		<footer className='site-footer'>
-			<div className='container'>
+			<div
+				className='container'
+				style={{ height: '50vh', marginBlockEnd: '1.5em' }}>
 				<div className='row'>
-					<div className='col-sm-12 col-md-6'>
+					<div className='col-sm-12 col-md-12'>
 						<h6>Giới thiệu</h6>
 						<p className='text-justify'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis possimus, necessitatibus ratione distinctio aperiam
-							eaque. Dolorem molestiae ex quaerat quibusdam rerum illo delectus
-							tenetur, accusantium, nihil sequi repellat, ab quasi perferendis
-							illum sapiente unde eius porro perspiciatis? Veniam itaque
-							explicabo vitae est, doloribus quis similique reiciendis fugiat
-							cumque, harum vel.
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+							nihil dolores ducimus beatae ut, eos necessitatibus natus,
+							mollitia nisi, enim minima. Voluptatum est odit, dolores impedit
+							architecto obcaecati cupiditate dolor minima accusantium. Minima,
+							voluptate ipsum. Quis maxime sit cupiditate est porro obcaecati
+							fugit ipsam, id nam enim odio commodi, eos voluptate blanditiis
+							facere quibusdam, ad quaerat accusantium! Perspiciatis distinctio
+							hic provident quaerat magni pariatur qui vel accusamus consequatur
+							repellendus a doloremque quidem at necessitatibus, modi soluta
+							eligendi illo officiis deleniti quasi explicabo vero sequi tempore
+							assumenda! Praesentium quam sapiente impedit, perferendis repellat
+							tempore molestiae illum repudiandae qui consequatur. Molestiae,
+							officiis molestias cumque tenetur dolores dolor? Cumque explicabo
+							et at consequatur dignissimos dolore exercitationem doloribus
+							veritatis reprehenderit illo, quibusdam laboriosam eaque
+							repudiandae commodi adipisci corrupti eum, obcaecati blanditiis
+							animi quas! Tempore, optio voluptas. Aperiam, amet. Non veniam
+							nisi excepturi saepe adipisci!
 						</p>
 					</div>
-
-					<div className='col-xs-6 col-md-3'>
+				</div>
+				<div className='row'>
+					<div className='col-xs-6 col-md-6'>
 						<h6>Danh mục</h6>
 						<ul className='footer-links'>
 							<li>
@@ -46,7 +60,7 @@ function Footer() {
 						</ul>
 					</div>
 
-					<div className='col-xs-6 col-md-3'>
+					<div className='col-xs-6 col-md-6'>
 						<h6>Liên kết</h6>
 						<ul className='footer-links'>
 							<li>
@@ -67,8 +81,8 @@ function Footer() {
 						</ul>
 					</div>
 				</div>
-				<hr />
 			</div>
+			<hr />
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-8 col-sm-6 col-xs-12'>

@@ -78,6 +78,17 @@ class ProductProvider extends Component {
 		);
 	};
 
+	emptyCart = () => {
+		this.setState(
+			{
+				carts: []
+			},
+			() => {
+				localStorage.removeItem('carts');
+			}
+		);
+	};
+
 	render() {
 		return (
 			<ProductContext.Provider
@@ -87,6 +98,7 @@ class ProductProvider extends Component {
 					getSimilarTypeProduct: this.getSimilarTypeProduct,
 					addCart: this.addCart,
 					updateCart: this.updateCart,
+					emptyCart: this.emptyCart,
 					selectedImage: this.selectedImage
 				}}>
 				{this.props.children}
