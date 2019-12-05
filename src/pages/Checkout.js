@@ -23,9 +23,10 @@ import {
 import { ExpandMore } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
+import SmallProduct from '../components/SmallProduct';
 import useForm from 'react-hook-form';
 
-const Checkout = ({ history }) => {
+const Checkout = () => {
 	const [expanded, setExpanded] = useState(1);
 	const [info, setInfo] = useState(
 		JSON.parse(localStorage.getItem('info')) || {
@@ -76,6 +77,13 @@ const Checkout = ({ history }) => {
 
 	const { register, errors, handleSubmit } = useForm();
 
+	const currentDate = moment().locale('vi');
+
+	let products = cartItems;
+	products = products.map(product => {
+		return <SmallProduct key={product.id} product={product} />;
+	});
+
 	const handleChange = panel => (event, isExpanded) => {
 		console.log('change panel');
 		setExpanded(panel);
@@ -103,10 +111,8 @@ const Checkout = ({ history }) => {
 	const completeOrder = e => {
 		alert('Đặt mua thành công');
 		emptyCart();
-		history.push('/');
+		window.location = '/';
 	};
-
-	const currentDate = moment().locale('vi');
 
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -138,6 +144,7 @@ const Checkout = ({ history }) => {
 									<div className='address-form'>
 										<div>
 											<TextField
+												required
 												fullWidth
 												error={errors.name ? true : false}
 												name='name'
@@ -153,6 +160,7 @@ const Checkout = ({ history }) => {
 											/>
 
 											<TextField
+												required
 												fullWidth
 												error={errors.address ? true : false}
 												name='address'
@@ -167,6 +175,7 @@ const Checkout = ({ history }) => {
 												defaultValue={info.address}
 											/>
 											<TextField
+												required
 												fullWidth
 												error={errors.ward ? true : false}
 												name='ward'
@@ -181,6 +190,7 @@ const Checkout = ({ history }) => {
 												defaultValue={info.ward}
 											/>
 											<TextField
+												required
 												fullWidth
 												error={errors.district ? true : false}
 												name='district'
@@ -197,6 +207,7 @@ const Checkout = ({ history }) => {
 										</div>
 										<div>
 											<TextField
+												required
 												fullWidth
 												error={errors.email ? true : false}
 												name='email'
@@ -211,9 +222,9 @@ const Checkout = ({ history }) => {
 												defaultValue={info.email}
 											/>
 											<TextField
+												required
 												fullWidth
 												error={errors.phone ? true : false}
-												type='number'
 												name='phone'
 												placeholder='Điện thoại'
 												label='Điện thoại'
@@ -284,6 +295,7 @@ const Checkout = ({ history }) => {
 										{payment === '1' && (
 											<div className='payment-form'>
 												<TextField
+													required
 													fullWidth
 													error={errors.card_number ? true : false}
 													type='number'
@@ -300,6 +312,7 @@ const Checkout = ({ history }) => {
 													})}
 												/>
 												<TextField
+													required
 													fullWidth
 													error={errors.card_name ? true : false}
 													name='card_name'
@@ -326,6 +339,7 @@ const Checkout = ({ history }) => {
 													onChange={handleDateChange}
 												/>
 												<TextField
+													required
 													fullWidth
 													error={errors.card_cvc ? true : false}
 													name='card_cvc'
@@ -406,7 +420,7 @@ const Checkout = ({ history }) => {
 												/>
 											)}
 										</div>
-										<div className='shipping-cart'></div>
+										<div className='shipping-cart'>{products}</div>
 										<div className='shipping-method'>
 											<Typography>
 												<b>Hình thức giao hàng</b>
@@ -475,8 +489,8 @@ const Checkout = ({ history }) => {
 						<div className='row cart-col-2'>
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-4'>Tạm tính:</span>
-									<strong className='col-8'>
+									<span className='col-5'>Tạm tính:</span>
+									<strong className='col-7'>
 										<NumberFormat
 											value={cartPrice}
 											displayType='text'
@@ -488,8 +502,8 @@ const Checkout = ({ history }) => {
 							</div>
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-4'>Phí ship:</span>
-									<strong className='col-8'>
+									<span className='col-5'>Phí vận chuyển:</span>
+									<strong className='col-7'>
 										<NumberFormat
 											value={shipPrice}
 											displayType='text'
@@ -503,8 +517,8 @@ const Checkout = ({ history }) => {
 
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-4'>Thành tiền:</span>
-									<strong className='col-8'>
+									<span className='col-5'>Thành tiền:</span>
+									<strong className='col-7'>
 										<NumberFormat
 											value={totalPrice}
 											displayType='text'
@@ -517,6 +531,17 @@ const Checkout = ({ history }) => {
 								</p>
 							</div>
 						</div>
+						{expanded !== 3 && (
+							<div className='row detail-cart'>
+								<div className='detail-cart-header'>
+									<h5>
+										<b>Giỏ hàng</b>
+									</h5>
+									<Link to='/cart'>Chỉnh sửa</Link>
+								</div>
+								<div className='detail-cart-list'>{products}</div>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

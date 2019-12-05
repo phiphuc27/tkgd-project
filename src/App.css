@@ -1096,6 +1096,10 @@ ul {
 	font-weight: 600;
 }
 
+.info-header svg {
+	color: #ebf5ee;
+}
+
 .address-form {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -1125,6 +1129,7 @@ ul {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr minmax(2fr, 1fr);
+	column-gap: 1em;
 }
 
 .shipping-gift {
@@ -1132,8 +1137,66 @@ ul {
 	margin-block-end: 1em;
 }
 
-.detail-panel .row {
-	padding: 0.4em;
+.detail-cart {
+	background-color: white;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.detail-cart-header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding: 1em;
+	background: #5b86e5;
+}
+
+.detail-cart-header h5,
+.detail-cart-header a {
+	color: white;
+}
+
+.detail-cart-header a:hover {
+	color: #022b3a;
+}
+
+.detail-cart-header > .row {
+	align-items: center;
+	vertical-align: middle;
+}
+
+.detail-cart-list {
+	padding: 1.2em;
+}
+
+.small-card {
+	display: flex;
+	flex-direction: row;
+}
+
+.small-card + .small-card {
+	margin-block-start: 0.7em;
+}
+
+.small-card-image > img {
+	width: 100px;
+	height: auto;
+}
+
+.small-card-info {
+	width: 100%;
+	padding: 0.8em 1em;
+	background-color: #ebebeb;
+	border-left: none;
+}
+
+.small-card-info > h6 {
+	font-size: 0.9rem;
+	margin-block-end: 3px;
+}
+
+.small-card-info > p {
+	font-size: 0.9rem;
+	margin: 0;
 }
 /* end of checkout */
 

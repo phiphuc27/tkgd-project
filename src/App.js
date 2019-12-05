@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProductContext } from './context';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,12 +10,13 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Error from './pages/Error';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 function App() {
+	const { carts } = useContext(ProductContext);
 	return (
 		<>
 			<Navbar />
@@ -28,7 +30,9 @@ function App() {
 
 				<Route exact path='/cart' component={Cart} />
 
-				<Route exact path='/checkout' component={Checkout} />
+				<Route exact path='/checkout' component={Checkout}>
+					{carts.length === 0 && <Redirect to='/' />}
+				</Route>
 				<Route>
 					<Error />
 				</Route>

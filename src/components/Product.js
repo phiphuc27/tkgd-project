@@ -15,9 +15,7 @@ const Product = ({ product, onClick }) => {
 						<a href={link} className='btn btn-light'>
 							Xem chi tiết
 						</a>
-						<button onClick={() => onClick(id)} className='btn btn-buy'>
-							Mua ngay
-						</button>
+						<button className='btn btn-buy'>Mua ngay</button>
 					</div>
 				</div>
 			</div>
