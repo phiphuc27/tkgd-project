@@ -39,11 +39,16 @@ class ProductProvider extends Component {
 		return product;
 	};
 
-	addCart = id => {
+	addCart = item => {
+		const { id, size, color } = item;
 		let carts = this.state.carts;
-		let cart = { id: id, quantity: 1 };
+		let cart = { ...item, quantity: 1 };
 		for (let i = 0; i < carts.length; i++) {
-			if (carts[i].id === id) {
+			if (
+				carts[i].id === id &&
+				carts[i].size === size &&
+				carts[i].color === color
+			) {
 				carts[i].quantity += 1;
 				this.updateCart(carts);
 				alert('Bạn đã thêm vào giỏ hàng thành công');
@@ -81,7 +86,8 @@ class ProductProvider extends Component {
 					getProduct: this.getProduct,
 					getSimilarTypeProduct: this.getSimilarTypeProduct,
 					addCart: this.addCart,
-					updateCart: this.updateCart
+					updateCart: this.updateCart,
+					selectedImage: this.selectedImage
 				}}>
 				{this.props.children}
 			</ProductContext.Provider>

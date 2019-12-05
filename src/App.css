@@ -801,6 +801,8 @@ ul {
 }
 
 .main-image img {
+	max-width: 400px;
+	height: 620px;
 	margin-inline-end: 10px;
 }
 
@@ -812,8 +814,8 @@ ul {
 	row-gap: 5px;
 }
 
-.sub-images img {
-	border: 1px solid #ececec;
+.img-selected {
+	border: 1px solid #022b3a;
 }
 
 .single-product-info > h4 {
@@ -989,6 +991,15 @@ ul {
 
 .cart-item + .cart-item {
 	margin-top: 10px;
+}
+
+.cart-item a {
+	color: black;
+}
+
+.cart-item a:hover {
+	text-decoration: none;
+	color: #5b86e5;
 }
 
 .cart-image {

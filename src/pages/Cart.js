@@ -78,11 +78,14 @@ export default class Cart extends Component {
 				let tempCarts = [];
 				let totalPrice = 0;
 				for (let i = 0; i < carts.length; i++) {
-					const product = this.context.getProduct(carts[i].id);
+					let product = this.context.getProduct(carts[i].id);
 					if (product) {
-						tempCarts.push(this.context.products[carts[i].id]);
-						tempCarts[i]['quantity'] = carts[i].quantity;
-						totalPrice += tempCarts[i].quantity * tempCarts[0].price;
+						let quantity = carts[i].quantity;
+						let size = product.size[carts[i].size];
+						let color = product.color[carts[i].color];
+						tempCarts = [...tempCarts, { ...product, quantity, size, color }];
+						totalPrice += tempCarts[i].quantity * tempCarts[i].price;
+						console.log(tempCarts[i]);
 					}
 				}
 
@@ -108,10 +111,32 @@ export default class Cart extends Component {
 								<div className='col-xs-7 col-md-7'>
 									<div className='row'>
 										<div className='col-12'>
-											<h6>{product.name}</h6>
+											<h6>
+												<a href={`/products/${product.id}`}>{product.name}</a>
+											</h6>
 										</div>
-										<div className='col-12'>
-											<p>{product.category}</p>
+										<div
+											className='col-8'
+											style={{
+												display: 'flex',
+												justifyContent: 'space-between'
+											}}>
+											<p style={{ textTransform: 'capitalize' }}>
+												{product.category}
+											</p>
+											/
+											<p style={{ textTransform: 'uppercase' }}>
+												{product.size}
+											</p>
+											/
+											<span
+												style={{
+													background: product.color,
+													width: '20px',
+													height: '20px',
+													margin: '0',
+													border: '1px solid #022b3a'
+												}}></span>
 										</div>
 									</div>
 								</div>

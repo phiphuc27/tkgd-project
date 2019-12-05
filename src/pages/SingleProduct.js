@@ -10,20 +10,34 @@ export default class SingleProduct extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: this.props.match.params.id
+			id: this.props.match.params.id,
+			mainImg: 0,
+			selectedSize: '0',
+			selectedColor: '0'
 		};
 	}
 
 	static contextType = ProductContext;
 
+	addToCart = () => {
+		const cartItem = {
+			id: this.state.id,
+			size: parseInt(this.state.selectedSize, 10),
+			color: parseInt(this.state.selectedColor, 10)
+		};
+		this.context.addCart(cartItem);
+	};
+
 	buyNow = () => {
-		this.context.addCart(this.state.id);
+		this.addToCart();
 		this.props.history.push('/cart');
 	};
 
 	render() {
 		const { getProduct, getSimilarTypeProduct } = this.context;
+		const { selectedColor, selectedSize } = this.state;
 		const product = getProduct(this.state.id);
+
 		if (!product) {
 			return (
 				<div className='error'>
@@ -33,7 +47,7 @@ export default class SingleProduct extends Component {
 		}
 
 		const { name, type, color, description, size, price, images } = product;
-		const [mainImage, ...subImages] = images;
+		const mainImage = images[this.state.mainImg];
 		const similarProduct = getSimilarTypeProduct(type, this.state.id).map(
 			product => {
 				return (
@@ -45,7 +59,6 @@ export default class SingleProduct extends Component {
 				);
 			}
 		);
-		console.log(similarProduct);
 		return (
 			<div className='container'>
 				<br />
@@ -61,8 +74,18 @@ export default class SingleProduct extends Component {
 							<img src={mainImage} alt={name} />
 						</div>
 						<div className='sub-images'>
-							{subImages.map((image, index) => {
-								return <img key={index} src={image} alt={name} />;
+							{images.map((image, index) => {
+								return (
+									<img
+										className={
+											this.state.mainImg === index ? 'img-selected' : ''
+										}
+										key={index}
+										src={image}
+										alt={name}
+										onClick={() => this.setState({ mainImg: index })}
+									/>
+								);
 							})}
 						</div>
 					</div>
@@ -83,22 +106,16 @@ export default class SingleProduct extends Component {
 								{size.map((item, index) => {
 									return (
 										<label key={index} htmlFor={item}>
-											{index === 0 ? (
-												<input
-													type='radio'
-													name='size'
-													id={item}
-													value={item}
-													defaultChecked
-												/>
-											) : (
-												<input
-													type='radio'
-													name='size'
-													id={item}
-													value={item}
-												/>
-											)}
+											<input
+												type='radio'
+												name='size'
+												id={item}
+												value={index}
+												checked={selectedSize === `${index}`}
+												onChange={e =>
+													this.setState({ selectedSize: e.target.value })
+												}
+											/>
 											<span>{item}</span>
 										</label>
 									);
@@ -112,22 +129,16 @@ export default class SingleProduct extends Component {
 								{color.map((item, index) => {
 									return (
 										<label key={index} htmlFor={item}>
-											{index === 0 ? (
-												<input
-													type='radio'
-													name='color'
-													id={item}
-													value={item}
-													defaultChecked
-												/>
-											) : (
-												<input
-													type='radio'
-													name='color'
-													id={item}
-													value={item}
-												/>
-											)}
+											<input
+												type='radio'
+												name='color'
+												id={item}
+												value={index}
+												checked={selectedColor === `${index}`}
+												onChange={e =>
+													this.setState({ selectedColor: e.target.value })
+												}
+											/>
 											<span style={{ backgroundColor: item }}></span>
 										</label>
 									);
@@ -140,9 +151,7 @@ export default class SingleProduct extends Component {
 						</div>
 						<hr />
 						<div className='product-buttons'>
-							<button
-								className='btn btn-buy'
-								onClick={() => this.context.addCart(this.state.id)}>
+							<button className='btn btn-buy' onClick={this.addToCart}>
 								Thêm vào giỏ hàng
 							</button>
 							<button className='btn btn-buy' onClick={this.buyNow}>
