@@ -25,6 +25,14 @@ class ProductProvider extends Component {
 		});
 	}
 
+	removeAccents = str => {
+		return str
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.replace(/đ/g, 'd')
+			.replace(/Đ/g, 'D');
+	};
+
 	getProduct = id => {
 		let tmpProducts = [...this.state.products];
 		const product = tmpProducts.find(product => product.id === id);
@@ -36,6 +44,18 @@ class ProductProvider extends Component {
 		const product = tmpProducts.filter(
 			product => product.type === type && product.id !== id
 		);
+		return product;
+	};
+
+	searchProduct = search => {
+		let tmpProducts = [...this.state.products];
+		const tmpSearch = this.removeAccents(search.toString().toLowerCase());
+
+		const product = tmpProducts.filter(product => {
+			const name = this.removeAccents(product.name.toLowerCase());
+
+			return name.includes(tmpSearch);
+		});
 		return product;
 	};
 
@@ -99,7 +119,8 @@ class ProductProvider extends Component {
 					addCart: this.addCart,
 					updateCart: this.updateCart,
 					emptyCart: this.emptyCart,
-					selectedImage: this.selectedImage
+					selectedImage: this.selectedImage,
+					searchProduct: this.searchProduct
 				}}>
 				{this.props.children}
 			</ProductContext.Provider>

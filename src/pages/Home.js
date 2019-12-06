@@ -9,10 +9,22 @@ class Home extends Component {
 	render() {
 		let { newProducts, trendingProducts } = this.context;
 		newProducts = newProducts.map(product => {
-			return <Product key={product.id} product={product} onClick = {(id) =>this.context.addCart(id)}/>;
+			return (
+				<Product
+					key={product.id}
+					product={product}
+					history={this.props.history}
+				/>
+			);
 		});
 		trendingProducts = trendingProducts.map(product => {
-			return <Product key={product.id} product={product} onClick = {(id) =>this.context.addCart(id)}/>;
+			return (
+				<Product
+					key={product.id}
+					product={product}
+					history={this.props.history}
+				/>
+			);
 		});
 		return (
 			<div>

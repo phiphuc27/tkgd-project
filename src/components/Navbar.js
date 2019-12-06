@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [left, setLeft] = useState(false);
+	const [search, setSearch] = useState('');
 	const context = useContext(ProductContext);
 	const { carts } = context;
 
@@ -29,6 +30,14 @@ const Navbar = () => {
 
 		setLeft(open);
 	};
+
+	const handleSearch = () => {
+		if (search === '') {
+			return;
+		}
+		window.location = `/products?search=${search}`;
+	};
+
 	return (
 		<nav className='nav-container'>
 			<div className='container'>
@@ -49,8 +58,15 @@ const Navbar = () => {
 						</Link>
 					</div>
 					<div className='nav-search'>
-						<input type='text' placeholder='Tìm kiếm sản phẩm mong muốn...' />
-						<button type='button'>
+						<input
+							type='text'
+							placeholder='Tìm kiếm sản phẩm mong muốn...'
+							onChange={e => setSearch(e.target.value)}
+							onKeyPress={e => {
+								if (e.key === 'Enter') handleSearch();
+							}}
+						/>
+						<button type='button' onClick={handleSearch}>
 							<span>
 								<GoSearch />
 							</span>

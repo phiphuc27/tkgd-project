@@ -23,7 +23,7 @@ import {
 import { ExpandMore } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
-import SmallProduct from '../components/SmallProduct';
+import SmallProduct from '../components/ProductSmall';
 import useForm from 'react-hook-form';
 
 const Checkout = () => {

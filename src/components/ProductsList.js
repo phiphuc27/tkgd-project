@@ -17,14 +17,10 @@ class ProductsList extends Component {
 		});
 	};
 	render() {
-		const { title, products } = this.props;
+		const { products } = this.props;
 		return (
-			<section className='featured-products row'>
-				<h4
-					className='col-md-10'
-					style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
-					{title}
-				</h4>
+			<section className='row'>
+				<div className='col-md-10'></div>
 				<FormControl
 					style={{
 						marginBottom: '10px',
@@ -42,13 +38,17 @@ class ProductsList extends Component {
 							name: 'Sắp xếp',
 							id: 'sort-native-label-placeholder'
 						}}>
-						<option value=''>None</option>
-						<option value={10}>Giá tiền giảm dần</option>
-						<option value={20}>Giá tiền tăng dần</option>
+						<option value=''>Sản phẩm nổi bật</option>
+						<option value={1}>Giá tiền giảm dần</option>
+						<option value={2}>Giá tiền tăng dần</option>
+						<option value={3}>Tên từ A-Z</option>
+						<option value={4}>Tên từ Z-A</option>
+						<option value={6}>Mới nhất</option>
+						<option value={7}>Bán chạy nhất</option>
 					</NativeSelect>
 				</FormControl>
 				<br></br>
-				<div className='productslist-container col-md-12'>{products}</div>
+				<div className='products-list-container'>{products}</div>
 			</section>
 		);
 	}

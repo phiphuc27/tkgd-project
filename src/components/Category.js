@@ -47,8 +47,8 @@ class Category extends Component {
 				<div className='container'>
 					{/* <div className="row"> */}
 					<div>
-						<div className='filter-widget ' style={{ marginTop: '90px' }}>
-							<h2 className='fw-title' style={{ marginBottom: '10px' }}>
+						<div className='filter-widget' style={{ marginTop: '90px' }}>
+							<h2 className='fw-title row' style={{ marginBottom: '10px' }}>
 								Categories
 							</h2>
 							<>
@@ -97,7 +97,7 @@ class Category extends Component {
 								</a>
 							</button>
 						</div>
-						<div className='filter-widget mb-0'>
+						<div className='filter-widget mb-0 row'>
 							<div className='fw-color-choose'>
 								<Typography className='fw-title' id='range-slider' gutterBottom>
 									Price
@@ -149,12 +149,17 @@ class Category extends Component {
 							</div>
 						</div>
 						<div className='filter-widget mb-0'>
-							<h2 className='fw-title' style={{ marginTop: '60px' }}>
+							<h2 className='fw-title row' style={{ marginTop: '60px' }}>
 								color by
 							</h2>
 							<div className='fw-color-choose'>
 								<div className='cs-item'>
-									<input type='radio' name='cs' id='gray-color' />
+									<input
+										type='radio'
+										name='cs'
+										id='gray-color'
+										defaultChecked
+									/>
 									<label className='cs-gray' htmlFor='gray-color'>
 										<span>(3)</span>
 									</label>
@@ -184,12 +189,7 @@ class Category extends Component {
 									</label>
 								</div>
 								<div className='cs-item'>
-									<input
-										type='radio'
-										name='cs'
-										id='blue-color'
-										defaultChecked
-									/>
+									<input type='radio' name='cs' id='blue-color' />
 									<label className='cs-blue' htmlFor='blue-color'>
 										<span>(29)</span>
 									</label>
@@ -197,7 +197,7 @@ class Category extends Component {
 							</div>
 						</div>
 						<div className='filter-widget mb-0'>
-							<h2 className='fw-title'>Size</h2>
+							<h2 className='fw-title row'>Size</h2>
 							<div className='fw-size-choose'>
 								<div className='sc-item'>
 									<input type='radio' name='sc' id='m-size' defaultChecked />
