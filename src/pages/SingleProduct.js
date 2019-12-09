@@ -90,15 +90,15 @@ export default class SingleProduct extends Component {
 						</div>
 					</div>
 					<div className='single-product-info'>
-						<h4>{name}</h4>
-						<h3>
+						<h3>{name}</h3>
+						<h6>
 							<NumberFormat
 								value={price}
 								displayType='text'
 								thousandSeparator={true}
 								suffix={'₫'}
 							/>
-						</h3>
+						</h6>
 						<hr />
 						<div className='product-size'>
 							<h4>Kích cỡ</h4>

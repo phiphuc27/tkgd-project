@@ -214,7 +214,7 @@ export default class Cart extends Component {
 							<div className='row cart-col-2'>
 								<div className='col-12'>
 									<p className='row'>
-										<span className='col-4'>Tạm tính:</span>
+										<span className='col-4'>Tạm tính</span>
 										<strong className='col-8'>
 											<NumberFormat
 												value={this.state.totalPrice}
@@ -229,7 +229,7 @@ export default class Cart extends Component {
 
 								<div className='col-12'>
 									<p className='row'>
-										<span className='col-4'>Thành tiền:</span>
+										<span className='col-4'>Thành tiền</span>
 										<strong className='col-8'>
 											<NumberFormat
 												value={this.state.totalPrice}

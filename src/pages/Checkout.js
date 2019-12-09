@@ -35,6 +35,7 @@ const Checkout = () => {
 			address: '',
 			ward: '',
 			district: '',
+			city: '',
 			phone: '',
 			company: false
 		}
@@ -125,7 +126,10 @@ const Checkout = () => {
 				<div className='page-title'>
 					<h4>Thanh toán</h4>
 				</div>
-				<div className='checkout'>
+				<div
+					className={`checkout ${
+						expanded === 3 ? 'checkout-mobile-last' : 'checkout-mobile-first'
+					}`}>
 					<div className='info-panel'>
 						<ExpansionPanel
 							expanded={expanded === 1}
@@ -179,8 +183,8 @@ const Checkout = () => {
 												fullWidth
 												error={errors.ward ? true : false}
 												name='ward'
-												placeholder='Phường'
-												label='Phường'
+												placeholder='Phường/Xã'
+												label='Phường/Xã'
 												helperText={errors.ward && errors.ward.message}
 												variant='outlined'
 												margin='normal'
@@ -194,8 +198,8 @@ const Checkout = () => {
 												fullWidth
 												error={errors.district ? true : false}
 												name='district'
-												placeholder='Quận'
-												label='Quận'
+												placeholder='Quận/Huyện'
+												label='Quận/Huyện'
 												helperText={errors.district && errors.district.message}
 												variant='outlined'
 												margin='normal'
@@ -203,6 +207,21 @@ const Checkout = () => {
 													required: 'Bắt buộc!'
 												})}
 												defaultValue={info.district}
+											/>
+											<TextField
+												required
+												fullWidth
+												error={errors.city ? true : false}
+												name='city'
+												placeholder='Tỉnh/Thành Phố'
+												label='Tỉnh/Thành Phố'
+												helperText={errors.city && errors.city.message}
+												variant='outlined'
+												margin='normal'
+												inputRef={register({
+													required: 'Bắt buộc!'
+												})}
+												defaultValue={info.city}
 											/>
 										</div>
 										<div>
@@ -489,7 +508,7 @@ const Checkout = () => {
 						<div className='row cart-col-2'>
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-5'>Tạm tính:</span>
+									<span className='col-5'>Tạm tính</span>
 									<strong className='col-7'>
 										<NumberFormat
 											value={cartPrice}
@@ -502,7 +521,7 @@ const Checkout = () => {
 							</div>
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-5'>Phí vận chuyển:</span>
+									<span className='col-5'>Phí vận chuyển</span>
 									<strong className='col-7'>
 										<NumberFormat
 											value={shipPrice}
@@ -517,7 +536,7 @@ const Checkout = () => {
 
 							<div className='col-12'>
 								<p className='row'>
-									<span className='col-5'>Thành tiền:</span>
+									<span className='col-5'>Thành tiền</span>
 									<strong className='col-7'>
 										<NumberFormat
 											value={totalPrice}

@@ -10,9 +10,7 @@ import {
 function Footer() {
 	return (
 		<footer className='site-footer'>
-			<div
-				className='container'
-				style={{ height: '50vh', marginBlockEnd: '1.5em' }}>
+			<div className='container' style={{ marginBlockEnd: '1.5em' }}>
 				<div className='row'>
 					<div className='col-sm-12 col-md-12'>
 						<h6>Giới thiệu</h6>
@@ -39,7 +37,7 @@ function Footer() {
 					</div>
 				</div>
 				<div className='row'>
-					<div className='col-xs-6 col-md-6'>
+					<div className='col-sm-6 col-6'>
 						<h6>Danh mục</h6>
 						<ul className='footer-links'>
 							<li>
@@ -60,7 +58,7 @@ function Footer() {
 						</ul>
 					</div>
 
-					<div className='col-xs-6 col-md-6'>
+					<div className='col-md-6 col-6'>
 						<h6>Liên kết</h6>
 						<ul className='footer-links'>
 							<li>
