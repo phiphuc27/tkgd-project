@@ -71,7 +71,6 @@ class ProductProvider extends Component {
 			) {
 				carts[i].quantity += 1;
 				this.updateCart(carts);
-				alert('Bạn đã thêm vào giỏ hàng thành công');
 				return;
 			}
 		}
@@ -84,7 +83,6 @@ class ProductProvider extends Component {
 				localStorage.setItem('carts', JSON.stringify(this.state.carts));
 			}
 		);
-		alert('Bạn đã thêm vào giỏ hàng thành công');
 	};
 
 	updateCart = carts => {

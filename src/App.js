@@ -20,7 +20,6 @@ function App() {
 	return (
 		<>
 			<Navbar />
-
 			<Switch>
 				<Route exact path='/' component={Home} />
 

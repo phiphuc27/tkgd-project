@@ -26,10 +26,16 @@ export default class SingleProduct extends Component {
 			color: parseInt(this.state.selectedColor, 10)
 		};
 		this.context.addCart(cartItem);
+		alert('Bạn đã thêm 1 sản phẩm vào giỏ hàng');
 	};
 
 	buyNow = () => {
-		this.addToCart();
+		const cartItem = {
+			id: this.state.id,
+			size: parseInt(this.state.selectedSize, 10),
+			color: parseInt(this.state.selectedColor, 10)
+		};
+		this.context.addCart(cartItem);
 		this.props.history.push('/cart');
 	};
 
