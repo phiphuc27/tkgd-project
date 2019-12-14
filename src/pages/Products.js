@@ -41,7 +41,13 @@ export default class Products extends Component {
 		}
 
 		productList = productList.map(product => {
-			return <Product key={product.id} product={product} />;
+			return (
+				<Product
+					key={product.id}
+					product={product}
+					history={this.props.history}
+				/>
+			);
 		});
 		return (
 			<div style={{ marginBlockEnd: '5em' }}>
