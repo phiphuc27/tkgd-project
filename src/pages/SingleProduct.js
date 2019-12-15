@@ -13,7 +13,8 @@ export default class SingleProduct extends Component {
 			id: this.props.match.params.id,
 			mainImg: 0,
 			selectedSize: '0',
-			selectedColor: '0'
+			selectedColor: '0',
+			quantity: 1 
 		};
 	}
 
@@ -26,6 +27,7 @@ export default class SingleProduct extends Component {
 			color: parseInt(this.state.selectedColor, 10)
 		};
 		this.context.addCart(cartItem);
+		this.updateContextQuantity();
 		alert('Bạn đã thêm 1 sản phẩm vào giỏ hàng');
 	};
 
@@ -36,8 +38,32 @@ export default class SingleProduct extends Component {
 			color: parseInt(this.state.selectedColor, 10)
 		};
 		this.context.addCart(cartItem);
+		this.updateContextQuantity();
 		this.props.history.push('/cart');
 	};
+
+	updateQuantity(x) {
+		if (this.state.quantity === 1 && x < 0) return;
+		let quantity = this.state.quantity + x;
+		this.setState({
+			quantity: quantity
+		});
+	}
+
+	updateContextQuantity() {
+		let carts = this.context.carts;
+		for (let i = 0; i < carts.length; i++) {
+			if (
+				carts[i].id === this.state.id &&
+				carts[i].size === parseInt(this.state.selectedSize, 10) &&
+				carts[i].color === parseInt(this.state.selectedColor, 10)
+			) {
+				carts[i].quantity += this.state.quantity - 1;
+				this.context.updateCart(carts);
+				return;
+			}
+		}
+	}
 
 	render() {
 		const { getProduct, getSimilarTypeProduct } = this.context;
@@ -156,6 +182,51 @@ export default class SingleProduct extends Component {
 							<pre>{description}</pre>
 						</div>
 						<hr />
+						<div className='row'>
+							<div className="col-3">Sổ lượng: </div>	
+							<div className='input-group col-5'>
+								<div
+									className='input-group-prepend'
+									onClick={() => this.updateQuantity(-1)}
+									>
+									<button className='cart-button'>-</button>
+								</div>
+								<input
+									type='text'
+									className='form-control'
+									style={{ width: '34px' }}
+									aria-label='Amount'
+									value={this.state.quantity}
+									onChange={e => {
+										let quantity = parseInt(e.target.value)
+										if(isNaN(quantity)){
+											console.log(quantity)
+										}
+										else if(quantity == 0) {
+											this.setState({
+												quantity: 1
+											})	
+										}
+										else if(quantity <= 100){
+											this.setState({
+												quantity: quantity
+											})
+										}
+										else {
+											this.setState({
+												quantity: 100
+											})		
+										}
+									}}																	
+								/>
+								<div
+									className='input-group-append'
+									onClick={() => this.updateQuantity(1)}
+									>
+									<button className='cart-button'>+</button>
+								</div>
+							</div>
+						</div>
 						<div className='product-buttons'>
 							<button className='btn btn-buy' onClick={this.addToCart}>
 								Thêm vào giỏ hàng

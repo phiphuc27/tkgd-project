@@ -105,7 +105,7 @@ class Category extends Component {
                   Price
                 </Typography>
                 <Slider
-                  style={{ width: '300px' }}
+                  style={{ width: '250px' }}
                   max={2000000}
                   min={100000}
                   value={this.state.value}
