@@ -313,6 +313,7 @@ ul {
 	display: none;
 	justify-content: space-between;
 	width: 600px;
+	z-index: 9999;
 	padding: 1.2rem;
 	border-radius: 0 0 8px 8px !important;
 }

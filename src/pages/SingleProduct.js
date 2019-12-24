@@ -202,7 +202,7 @@ export default class SingleProduct extends Component {
 										if(isNaN(quantity)){
 											console.log(quantity)
 										}
-										else if(quantity == 0) {
+										else if(quantity === 0) {
 											this.setState({
 												quantity: 1
 											})	
